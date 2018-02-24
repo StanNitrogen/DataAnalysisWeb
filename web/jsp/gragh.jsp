@@ -62,19 +62,25 @@
             var rate;
             var con = new Array(),conRate = new Array();
             var inn = 0, sql = 0, total = 0, reqTotal = 0, innTotal = 0, sqlTotal = 0;
+            debugger;
             for (var i=0;i<data.length;i++) {
                 var obj = data[i];
                 inn += nvl(obj.is_not_null);
                 sql += nvl(obj.sql_error);
 //                con += nvl(obj.consistence);
-                con.push(obj.consistence);
+                con.push((obj.consistence)).toFixed(0);
                 total += nvl(obj.total);
                 innTotal += nvl(obj.inn_total);
                 sqlTotal += nvl(obj.sql_total);
                 if (i == 0) {
                     reqTotal = nvl(obj.total);
                 }
-                conRate.push((obj.consistence * 100 / reqTotal).toFixed(4));
+                if (!reqTotal){
+                    conRate.push(0);
+                }else {
+                    conRate.push((obj.consistence * 100 / reqTotal).toFixed(4));
+                }
+
 
                 option.series[parseInt(obj.status)].data = [nvl(obj.is_not_null), nvl(obj.sql_error)];
 //                option.series[parseInt(obj.status)].data = [nvl(obj.is_not_null), nvl(obj.sql_error), nvl(obj.consistence)];
@@ -94,7 +100,7 @@
             //初始化echarts实例
             var conChart = echarts.init(document.getElementById('con'));
             conOption.series[0].data = con;
-            conOption.series[0].data = conRate;
+            conOption.series[1].data = conRate;
             conChart.setOption(conOption);
         }
 

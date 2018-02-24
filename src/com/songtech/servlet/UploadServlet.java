@@ -126,7 +126,7 @@ public class UploadServlet extends HttpServlet {
 ////                      // 保存文件到硬盘
 //                        item.write(storeFile);
                         request.setAttribute("message",
-                                "文件上传成功!");
+                                "数据分析成功!");
                     }
                 }
                 jdbc.destroy();
@@ -134,7 +134,7 @@ public class UploadServlet extends HttpServlet {
         } catch (Exception ex) {
             ex.printStackTrace();
             request.setAttribute("message",
-                    "错误信息: " + ex.getMessage());
+                    "数据分析失败,请检查您的excel是否合乎规范!");
         }
 
         response.setCharacterEncoding("UTF-8");

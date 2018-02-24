@@ -77,3 +77,12 @@ function query(path) {
 function gragh(attach_id) {
     window.location.href='/jsp/gragh.jsp?id='+attach_id;
 }
+
+function help(){
+    $('#helpPanel').modal('show');
+}
+
+function helpClose(){
+    $('#helpModal')[0].reset();
+    $('#helpPanel').modal('hide');
+}

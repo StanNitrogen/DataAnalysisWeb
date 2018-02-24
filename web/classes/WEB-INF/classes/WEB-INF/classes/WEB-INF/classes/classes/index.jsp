@@ -25,6 +25,7 @@
     <script type="text/javascript" src="<%=basePath%>/bootstrap/js/file-input.js"></script>
     <script type="text/javascript" src="<%=basePath%>/bootstrap/js/fileinput_locale_zh.js"></script>
     <script type="text/javascript" src="<%=basePath%>/js/index.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/bootstrap/js/common.js"></script>
 
     <link rel="stylesheet" href="<%=basePath%>/bootstrap/css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="<%=basePath%>/bootstrap/css/bootstrap-datetimepicker.min.css" type="text/css"/>
@@ -41,6 +42,10 @@
             margin-left: 3rem;
         }
 
+        .mar-right {
+            margin-right: 3.3rem;
+            float: right;
+        }
     </style>
 </head>
 <body>
@@ -55,6 +60,9 @@
                 class="btn btn-success">&nbsp;查&nbsp;&nbsp;&nbsp;&nbsp;询&nbsp;
         </button>
         <button type="button" onclick="analysis()" class="btn btn-warning">数据分析</button>
+    </div>
+    <div class="form-group mar-right" id="help">
+        <a href="#" onclick="help()">操作帮助</a>
     </div>
 </form>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -120,6 +128,46 @@
         %>
         </tbody>
     </table>
+</div>
+
+<div class="modal fade" id="helpPanel" tabindex="-1" role="dialog" aria-labelledby="ViewPanel" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="helpModalLabel">帮助</h4></div>
+            <div id="_helpModalDialog_body" class="modal-body">
+                <form class="form-horizontal" id="helpModal" role="form">
+                    <!--  设置这个div的大小，超出部分不显示滚动条 -->
+                    <%--<div class="table-responsive">--%>
+                    <%--<img id="h1" src="<%=basePath%>img/h1.jpg" width="100%" height="50%"/>--%>
+                    <%--<img id="h2" src="<%=basePath%>img/h2.jpg" width="100%" height="50%" style="display: none"/>--%>
+                    <%--</div>--%>
+                    <div class="table-responsive">
+                    <div id="myCarousel" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                        </ol>
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item"><img id="h1" src="<%=basePath%>img/h1.jpg" width="100%" height="50%"/></div>
+                            <div class="item"><img id="h2" src="<%=basePath%>img/h2.jpg" width="100%" height="50%"/></div>
+                        </div>
+                        <!-- Carousel nav -->
+                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                    </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a class="btn" onClick="helpClose()">关闭</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="modal fade" id="ViewPanel" tabindex="-1" role="dialog" aria-labelledby="ViewPanel">
@@ -194,6 +242,11 @@
     }).on("fileuploaded", function (event, data, previewId, index) {
 //        文件上传完成后，通过返回值进行判断处理
         var res = data.response;
+        if (res){
+            alert("数据分析成功！");
+        }else {
+            alert("数据分析失败，请检查您的excel是否合乎规范！");
+        }
         $('#inputfile').fileinput('clear');
         $('#inputfile').fileinput('unlock');
         $("#myModal").modal('hide');
