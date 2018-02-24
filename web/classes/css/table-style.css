@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+    font-family: 黑体;
+}
+.mar-5{
+    margin-left: 3rem;
+}
+table{
+    text-align: center;
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+th{
+    text-align: center;
+}

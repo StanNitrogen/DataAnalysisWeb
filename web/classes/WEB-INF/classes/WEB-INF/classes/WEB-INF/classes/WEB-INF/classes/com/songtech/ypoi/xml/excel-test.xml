@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Excel xmlns="http://www.w3school.com.cn"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.w3school.com.cn excel.xsd">
+    <Sheets>
+        <Sheet sheetName="all" sheetOrder="0">
+            <Titles>
+                <title>
+                    <titleName>qqqq</titleName>
+                    <titleStartRow>2</titleStartRow>
+                    <titleRowspan>2</titleRowspan>
+                    <titleStartColumn>0</titleStartColumn>
+                    <titleColspan>1</titleColspan>
+                </title>
+            </Titles>
+            <Columns>
+                <column>
+                    <colName>共享</colName>
+                    <fieldName>share</fieldName>
+                </column>
+                <column>
+                    <colName>共享率</colName>
+                    <fieldName>shareRate</fieldName>
+                    <orderNum>0</orderNum>
+                    <exportFormatter>YYYY-MM-DD</exportFormatter>
+                    <importFormatter>YYYY-MM-DD</importFormatter>
+                    <isImport>true</isImport>
+                    <type>1</type>
+                    <width>4</width>
+                </column>
+                <column>
+                    <colName>率</colName>
+                    <fieldName>Rate</fieldName>
+                    <orderNum>9</orderNum>
+                </column>
+                <column>
+                    <colName>共享率4</colName>
+                    <fieldName>shareRate1</fieldName>
+                    <orderNum>4</orderNum>
+                    <exportFormatter>YYYY-MM-DD</exportFormatter>
+                    <importFormatter>YYYY-MM-DD</importFormatter>
+                    <isImport>true</isImport>
+                    <type>1</type>
+                    <width>4</width>
+                </column>
+            </Columns>
+        </Sheet>
+        <!--&lt;!&ndash;必填样例&ndash;&gt;-->
+        <!--<Sheet sheetName="required" sheetOrder="1">-->
+            <!--<Titles>-->
+                <!--<title>-->
+                    <!--<titleName></titleName>-->
+                <!--</title>-->
+            <!--</Titles>-->
+            <!--<Columns>-->
+                <!--<column>-->
+                    <!--<excelName></excelName>-->
+                    <!--<colName></colName>-->
+                <!--</column>-->
+                <!--<column>-->
+                    <!--<excelName></excelName>-->
+                    <!--<colName></colName>-->
+                <!--</column>-->
+            <!--</Columns>-->
+        <!--</Sheet>-->
+    </Sheets>
+</Excel>

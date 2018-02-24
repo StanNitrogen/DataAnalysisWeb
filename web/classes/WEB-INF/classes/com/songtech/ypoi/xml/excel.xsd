@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.w3school.com.cn"
+           xmlns="http://www.w3school.com.cn"
+           elementFormDefault="qualified">
+
+
+    <xs:element name="Excel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Sheets">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="Sheet" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Sheet">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Titles" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="title" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element name="titleName" type="xs:string"/>
+                                        <xs:element name="titleStartRow" type="xs:integer" minOccurs="0"/>
+                                        <xs:element name="titleRowspan" type="xs:integer" minOccurs="0"/>
+                                        <xs:element name="titleStartColumn" type="xs:integer" minOccurs="0"/>
+                                        <xs:element name="titleColspan" type="xs:integer" minOccurs="0"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Columns">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="column" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element name="fieldName" type="xs:string" nillable="false"/>
+                                        <xs:element name="colName" type="xs:string" nillable="false"/>
+                                        <xs:element name="orderNum" type="xs:integer" minOccurs="0"/>
+                                        <xs:element name="width" type="xs:integer" minOccurs="0"/>
+                                        <xs:element name="type" type="xs:integer" minOccurs="0"/>
+                                        <xs:element name="importFormatter" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="exportFormatter" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="isImport" type="xs:boolean" minOccurs="0"/>
+                                    </xs:all>
+                                </xs:complexType>
+                                <xs:unique name="columnUnique">
+                                    <xs:selector xpath=".//column"/>
+                                    <xs:field xpath="VOName"/>
+                                </xs:unique>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="sheetName" type="xs:string"/>
+            <xs:attribute name="sheetOrder" type="xs:integer" use="required"/>
+            <xs:attribute name="classPath" type="xs:string"/>
+        </xs:complexType>
+        <xs:unique name="SheetUnique">
+            <xs:selector xpath=".//Sheet"/>
+            <xs:field xpath="@sheetOrder"/>
+        </xs:unique>
+    </xs:element>
+
+</xs:schema>
