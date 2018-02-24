@@ -2,7 +2,7 @@ package com.songtech.jdbc;
 
 /**
  * Create By YINN on 2018/2/8 10:07
- * Description :
+ * Description : JDBCUtil
  */
 public class JDBCUitls {
     public static JDBCObject JDBCFactory(String path, String username, String password) {
