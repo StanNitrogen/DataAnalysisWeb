@@ -43,7 +43,7 @@
         }
 
         .mar-right {
-            margin-right: 3.3rem;
+            margin-right: 5rem;
             float: right;
         }
     </style>
@@ -131,7 +131,7 @@
 </div>
 
 <div class="modal fade" id="helpPanel" tabindex="-1" role="dialog" aria-labelledby="ViewPanel" >
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" role="document" style="width: 768px!important;">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
